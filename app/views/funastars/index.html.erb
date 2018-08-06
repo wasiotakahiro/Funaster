@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Funastars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Caption</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funastars.each do |funastar| %>
+      <tr>
+        <td><%= funastar.image %></td>
+        <td><%= funastar.caption %></td>
+        <td><%= link_to 'Show', funastar %></td>
+        <td><%= link_to 'Edit', edit_funastar_path(funastar) %></td>
+        <td><%= link_to 'Destroy', funastar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funastar', new_funastar_path %>

@@ -1,0 +1,2 @@
+class Funastar < ApplicationRecord
+end
