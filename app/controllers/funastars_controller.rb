@@ -10,6 +10,7 @@ class FunastarsController < ApplicationController
   # GET /funastars/1
   # GET /funastars/1.json
   def show
+    @favorite = current_user.favorites.find_by(funastar_id: @funastar.id)
   end
 
   # GET /funastars/new
