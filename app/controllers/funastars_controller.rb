@@ -31,9 +31,11 @@ end
   # POST /funastars.json
   def create
     @funastar = Funastar.new(funastar_params)
+    @funastar.user_id = current_user.id
 
     respond_to do |format|
       if @funastar.save
+
         format.html { redirect_to @funastar, notice: 'Funastar was successfully created.' }
         format.json { render :show, status: :created, location: @funastar }
       else
