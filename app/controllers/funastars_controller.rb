@@ -14,11 +14,17 @@ class FunastarsController < ApplicationController
 
   # GET /funastars/new
   def new
+  if params[:back]
+    @funastar = Funastar.new(funastar_params)
+  else
     @funastar = Funastar.new
   end
+end
+
 
   # GET /funastars/1/edit
   def edit
+    @funastar = Funastar.find(params[:id])
   end
 
   # POST /funastars
@@ -60,6 +66,10 @@ class FunastarsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def confirm
+     @funastar = Funastar.new(funastar_params)
+   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
