@@ -3,6 +3,14 @@
 <p>タイトル: <%= @funastar.image %></p>
 <p>内容: <%= @funastar.caption %></p>
 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @funastar.image %>
+</p>
+
+
 <% unless @funastar.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
