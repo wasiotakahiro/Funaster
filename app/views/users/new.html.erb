@@ -14,4 +14,11 @@
   <%= f.password_field :password_confirmation %>
 
   <%= f.submit "Create my account" %>
+
+  <div class="new_icon">
+          <p class="new_icon_lable"><  <%= f.label :icon_image %></p>
+          <p class="new_icon_image"><%= f.file_field :icon_image, id: :@user_icon_image %></p>
+          <%= image_tag(@user.icon_image) if @user.icon_image %>
+          <%= f.hidden_field :icon_image_cache %>
+        </div>
 <% end %>
