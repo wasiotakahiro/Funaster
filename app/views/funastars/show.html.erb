@@ -1,15 +1,15 @@
 
-<h1>ブログ詳細画面</h1>
+<h1>投稿詳細画面</h1>
+<p>名前　<%= @funastar.user.name %></p>
 <p>タイトル: <%= @funastar.image %></p>
 <p>内容: <%= @funastar.caption %></p>
 
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="show_funastar_image">
   <strong>Image:</strong>
   <%= image_tag @funastar.image %>
 </p>
-
 
 <% unless @funastar.user_id == current_user.id %>
   <% if @favorite.present? %>

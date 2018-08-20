@@ -14,7 +14,7 @@
   <tbody>
     <% @funastars.each do |funastar| %>
       <tr>
-        <td><%= funastar.image %></td>
+        <td><%= image_tag funastar.image %></td>
         <td><%= funastar.caption %></td>
         <td><%= link_to 'Show', funastar %></td>
         <td><%= link_to 'Edit', edit_funastar_path(funastar) %></td>

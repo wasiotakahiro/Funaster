@@ -40,8 +40,7 @@ end
     respond_to do |format|
       if @funastar.save
         @inform = current_user.email
-        binding.pry
-        ContactMailer.send_mail(@inform).deliver
+        FunastarMailer.funastar_mail(@funastar).deliver
 
         format.html { redirect_to @funastar, notice: 'Funastar was successfully created.' }
         format.json { render :show, status: :created, location: @funastar }
@@ -69,10 +68,14 @@ end
   # DELETE /funastars/1
   # DELETE /funastars/1.json
   def destroy
-    @funastar.destroy
-    respond_to do |format|
-      format.html { redirect_to funastars_url, notice: 'Funastar was successfully destroyed.' }
-      format.json { head :no_content }
+    if @funastar.user_id == current_user.id
+       @funastar.destroy
+       respond_to do |format|
+        format.html { redirect_to funastars_url, notice: 'Funastar was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to funastars_path
     end
   end
 
@@ -88,7 +91,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def funastar_params
-      params.require(:funastar).permit(:image, :caption)
+      params.require(:funastar).permit(:image, :image_cache, :caption)
     end
 
     def set_user_infomation

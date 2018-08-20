@@ -13,6 +13,13 @@
 
   <div class="field">
     <%= form.label :image %>
+    <%= image_tag(@funastar.image.url) if @funastar.image.url %>
+    <%= form.file_field :image, id: :funastar_image %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :image %>
     <%= form.file_field :image, id: :funastar_image %>
   </div>
 

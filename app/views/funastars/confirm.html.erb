@@ -3,7 +3,8 @@
 <%= form_with(model: @funastar, url: funastars_path, local: true) do |form| %>
   <%= form.hidden_field :image %>
   <%= form.hidden_field :caption %>
-
+  <%= image_tag(@funastar.image) %>
+  <%= form.hidden_field :image_cache %>
   <p>タイトル:<%= @funastar.image %></p>
   <p>本文:<%= @funastar.caption %></p>
   <%= form.submit  "登録する" %>
