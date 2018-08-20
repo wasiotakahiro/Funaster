@@ -4,19 +4,17 @@ class FunastarsController < ApplicationController
 
  def top
   end
-  # GET /funastars
-  # GET /funastars.json
+
   def index
     @funastars = Funastar.all
   end
 
-  # GET /funastars/1
-  # GET /funastars/1.json
+
   def show
     @favorite = current_user.favorites.find_by(funastar_id: @funastar.id)
   end
 
-  # GET /funastars/new
+
   def new
   if params[:back]
     @funastar = Funastar.new(funastar_params)
@@ -27,13 +25,11 @@ class FunastarsController < ApplicationController
 end
 
 
-  # GET /funastars/1/edit
   def edit
     @funastar = Funastar.find(params[:id])
   end
 
-  # POST /funastars
-  # POST /funastars.json
+
   def create
     @funastar = Funastar.new(funastar_params)
     @funastar.user_id = current_user.id
@@ -53,8 +49,7 @@ end
     end
   end
 
-  # PATCH/PUT /funastars/1
-  # PATCH/PUT /funastars/1.json
+
   def update
     respond_to do |format|
       if @funastar.update(funastar_params)
@@ -67,8 +62,7 @@ end
     end
   end
 
-  # DELETE /funastars/1
-  # DELETE /funastars/1.json
+
   def destroy
     if @funastar.user_id == current_user.id
        @funastar.destroy
@@ -86,12 +80,12 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_funastar
       @funastar = Funastar.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  
     def funastar_params
       params.require(:funastar).permit(:image, :image_cache, :caption)
     end
