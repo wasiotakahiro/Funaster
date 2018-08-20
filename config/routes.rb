@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root to: "funastars#top"
   resources :contacts
   resources :funastars do
+
 
     collection do
       post :confirm

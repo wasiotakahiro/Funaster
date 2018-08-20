@@ -2,6 +2,8 @@ class FunastarsController < ApplicationController
   before_action :set_funastar, only: [:show, :edit, :update, :destroy]
   before_action :require_sign_in!, only: [:new, :edit, :show]
 
+ def top
+  end
   # GET /funastars
   # GET /funastars.json
   def index
