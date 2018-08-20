@@ -31,7 +31,7 @@ Rails.application.configure do
   config.assets.compile = false
 
 
-  config.action_mailer.default_url_options = { host: 'https://sheltered-scrubland-71446.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'sheltered-scrubland-71446.herokuapp.com' }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
