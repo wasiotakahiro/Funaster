@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815145004) do
+ActiveRecord::Schema.define(version: 20180817125303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20180815145004) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -28,9 +36,7 @@ ActiveRecord::Schema.define(version: 20180815145004) do
   end
 
   create_table "funastars", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.integer "user_id"
     t.text "image"
     t.text "caption"
     t.datetime "created_at", null: false
@@ -41,10 +47,9 @@ ActiveRecord::Schema.define(version: 20180815145004) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.text "image"
-    t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "icon_image"
   end
 
 end
