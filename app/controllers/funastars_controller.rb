@@ -85,7 +85,7 @@ end
       @funastar = Funastar.find(params[:id])
     end
 
-  
+
     def funastar_params
       params.require(:funastar).permit(:image, :image_cache, :caption)
     end
@@ -96,7 +96,7 @@ end
 
     def require_sign_in!
       unless logged_in?
-        redirect_to sessions_new_path, noctice:"ログインしてください"
+        redirect_to new_session_path, noctice:"ログインしてください"
     end
   end
 end

@@ -2,16 +2,7 @@
 
 <h1>Funastars</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Caption</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<tbody>
     <% @funastars.each do |funastar| %>
       <tr>
         <td><%= image_tag funastar.image %></td>
