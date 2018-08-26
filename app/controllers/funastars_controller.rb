@@ -1,6 +1,7 @@
 class FunastarsController < ApplicationController
   before_action :set_funastar, only: [:show, :edit, :update, :destroy]
   before_action :require_sign_in!, only: [:new, :edit, :show]
+  before_action :correct_user, only:  [:edit, :update]
 
  def top
   end

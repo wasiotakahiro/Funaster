@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only  [:edit, :update]
+  before_action :correct_user, only:  [:edit, :update]
 
   def new
     @user = User.new
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   # end
 
   # 消してもいい
-  def correct_user
+   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_path)unless current_user?(@user)
 
@@ -49,4 +49,4 @@ class UsersController < ApplicationController
       unless logged_in?
         redirect_to new_session_path, noctice:"ログインしてください"
     end
-end
+  end
