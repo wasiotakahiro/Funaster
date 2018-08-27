@@ -7,9 +7,12 @@
       <tr>
         <td><%= image_tag funastar.image %></td>
         <td><%= funastar.caption %></td>
+
         <td><%= link_to 'Show', funastar, class: 'btn btn-default' %></td>
-        <td><%= link_to 'Edit', edit_funastar_path(funastar), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', funastar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# if current_user.id == funastar.user_id %>
+          <td><%= link_to 'Edit', edit_funastar_path(funastar), class: 'btn btn-default' %></td>
+          <td><%= link_to 'Destroy', funastar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# end %>
       </tr>
     <% end %>
   </tbody>

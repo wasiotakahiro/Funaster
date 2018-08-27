@@ -1,13 +1,13 @@
 class FunastarsController < ApplicationController
   before_action :set_funastar, only: [:show, :edit, :update, :destroy]
   before_action :require_sign_in!, only: [:new, :edit, :show]
-  before_action :correct_user, only:  [:edit, :update]
 
  def top
   end
 
   def index
     @funastars = Funastar.all
+    binding.pry
   end
 
 
@@ -34,7 +34,6 @@ end
   def create
     @funastar = Funastar.new(funastar_params)
     @funastar.user_id = current_user.id
-
 
     respond_to do |format|
       if @funastar.save
@@ -80,6 +79,15 @@ end
      @funastar = Funastar.new(funastar_params)
   end
 
+  def ensure_correct_user
+    @funastar = Funastar.find_by(id: params[:id])
+    if @funastar.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to funastars_path
+      # ("/funastars/index")
+    end
+  end
+
   private
 
     def set_funastar
@@ -88,12 +96,14 @@ end
 
 
     def funastar_params
-      params.require(:funastar).permit(:image, :image_cache, :caption)
+      params.require(:funastar).permit(:image, :image_cache, :caption, :user_id)
     end
 
     def set_user_infomation
       @user = User.find(params[:id])
     end
+
+
 
     def require_sign_in!
       unless logged_in?

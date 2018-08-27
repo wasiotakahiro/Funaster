@@ -44,9 +44,11 @@ class UsersController < ApplicationController
    def correct_user
     @user = User.find(params[:id])
     redirect_to(root_path)unless current_user?(@user)
+   end
 
-    def require_sign_in!
+   def require_sign_in!
       unless logged_in?
         redirect_to new_session_path, noctice:"ログインしてください"
     end
   end
+end
