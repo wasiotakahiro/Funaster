@@ -9,15 +9,15 @@
         <td><%= funastar.caption %></td>
 
         <td><%= link_to 'Show', funastar, class: 'btn btn-default' %></td>
-        <%# if current_user.id == funastar.user_id %>
+        <% if current_user.id == funastar.user_id %>
           <td><%= link_to 'Edit', edit_funastar_path(funastar), class: 'btn btn-default' %></td>
           <td><%= link_to 'Destroy', funastar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%# end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Funastar', new_funastar_path %>
+<%= link_to "お気に入り一覧", favorites_index_funastars_path %>
+<%= link_to '新規投稿', new_funastar_path %>

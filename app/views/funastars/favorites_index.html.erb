@@ -1,0 +1,12 @@
+<h3>あなたのお気に入り投稿</h3><br>
+<div class="favrites">
+ <% @favorite_funastars.each do |favorite_funastar| %>
+ <table>
+   <tr>
+     <p><%= favorite_funastar.caption %></p>
+     <p><%= image_tag favorite_funastar.image %></p>
+
+   </tr>
+ </table>
+  <% end %>
+  <%= link_to "topにもどる", funastars_path %>

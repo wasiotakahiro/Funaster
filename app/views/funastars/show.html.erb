@@ -1,7 +1,6 @@
 
 <h1>投稿詳細画面</h1>
 <p>名前　<%= @funastar.user.name %></p>
-<p>タイトル: <%= @funastar.image %></p>
 <p>内容: <%= @funastar.caption %></p>
 
 <p id="notice"><%= notice %></p>
@@ -20,5 +19,4 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_funastar_path(@funastar) %> |
 <%= link_to 'Back', funastars_path %>
